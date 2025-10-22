@@ -2,6 +2,11 @@
 
 prototipo de sistema de microservicios con la conjetura de Collatz
 
+## VIDEO FUNCIONALIDAD
+
+Esta en la carpeta img o se puede ingresar a este link
+https://www.youtube.com/watch?v=-uG59ogPZq8
+
 ## correrlo en ec2
 
 - abrir aws
