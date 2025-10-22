@@ -25,20 +25,29 @@ public class ProxyController {
     }
 
     private String redirectRequest(String path) throws IOException {
-    
+
         String GET_URL = "";
 
         if (path.startsWith("/collatzsequence")) {
 
-            try{
+            try {
                 GET_URL = "http://44.220.141.128:8081/collatzsequence?value=" + path.split("=")[1];
                 System.out.println("Se ejecutó correctamente el servidor");
-            }catch(Exception e){
+            } catch (Exception e) {
+
                 System.out.println("No se pudo correr el primer servidor por lo que se optó por correr el segundo servidor");
+
+                try {
+                    GET_URL = "http://44.223.51.92:8082/collatzsequence?value=" + path.split("=")[1];
+                    System.out.println("Conexión exitosa a la URL 2");
+                } catch (Exception e2) {
+                    // Si falla también la segunda, puedes manejar el error
+                    System.out.println("Error al conectar a la URL 2 también: " + e2.getMessage());
+                }
                 GET_URL = "http://44.223.51.92:8082/collatzsequence?value=" + path.split("=")[1];
                 System.out.println("No se pudo correr el primer servidor por lo que se optó por correr el segundo servidor");
             }
-        } 
+        }
         URL url = new URL(GET_URL);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
