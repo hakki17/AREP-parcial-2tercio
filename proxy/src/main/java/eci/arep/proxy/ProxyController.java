@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class ProxyController {
 
+    private static final String USER_AGENT = "Mozilla/5.0";
+
     @GetMapping("/proxy")
     public String handleRequest(@RequestParam String path) throws IOException {
         return redirectRequest(path);
@@ -31,14 +33,14 @@ public class ProxyController {
                 targetUrl = "http://localhost:8081/collatzsequence?value=" + path.split("=")[1];
                 System.out.println("Se ejecutó correctamente el servidor");
             }catch(Exception e){
-                targetUrl = "http://localhost:8082/collatzsequence?value=" + path.split("=")[1];
+                targetUrl = "http://localhost:8081/collatzsequence?value=" + path.split("=")[1];
                 System.out.println("No se pudo correr el primer servidor por lo que se optó por correr el segundo servidor");
             }
         } 
         URL url = new URL(targetUrl);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
-        con.setRequestProperty("User-Agent", "Mozilla/5.0");
+        con.setRequestProperty("User-Agent", USER_AGENT);
 
         int responseCode = con.getResponseCode();
         if (responseCode == HttpURLConnection.HTTP_OK) {
