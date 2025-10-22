@@ -41,7 +41,6 @@ public class ProxyController {
                     GET_URL = "http://44.223.51.92:8082/collatzsequence?value=" + path.split("=")[1];
                     System.out.println("Conexión exitosa a la URL 2");
                 } catch (Exception e2) {
-                    // Si falla también la segunda, puedes manejar el error
                     System.out.println("Error al conectar a la URL 2 también: " + e2.getMessage());
                 }
                 GET_URL = "http://44.223.51.92:8082/collatzsequence?value=" + path.split("=")[1];
