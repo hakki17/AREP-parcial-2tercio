@@ -21,6 +21,11 @@ public class ProxyController {
 
     @GetMapping("/proxy")
     public String proxyRequest(@RequestParam String path) throws IOException {
+        return redirectRequest(path);
+    }
+
+    private String redirectRequest(String path) throws IOException {
+    
         String GET_URL = "";
 
         if (path.startsWith("/collatzsequence")) {
