@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class ServiceController {
     
     @GetMapping("/collatzsequence")
-    public String collatzSequence(@RequestParam String value) {
+    public String ConjeturadeCollatz(@RequestParam String value) {
         return "{\"operation\":\"COLLATZ\", \"input\": " + value + ", \"output\": \"" + Collatz(value) + "\"}";
     }
     
     private String Collatz(String value) {
         int n = Integer.parseInt(value);
-        String sequence = "" + n;
+        String k = "" + n;
         
         while (n != 1) {
             if (n % 2 == 0) {
@@ -22,10 +22,10 @@ public class ServiceController {
             } else {
                 n = 3 * n + 1;
             }
-            sequence = sequence + "," + n;
+            k = k + " , " + n;
         }
         
-        return sequence;
+        return k;
     }
 
 }

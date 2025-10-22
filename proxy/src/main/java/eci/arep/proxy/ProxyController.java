@@ -20,24 +20,20 @@ public class ProxyController {
     private static final String USER_AGENT = "Mozilla/5.0";
 
     @GetMapping("/proxy")
-    public String handleRequest(@RequestParam String path) throws IOException {
-        return redirectRequest(path);
-    }
-
-    private String redirectRequest(String path) throws IOException {
-        String targetUrl = "";
+    public String proxyRequest(@RequestParam String path) throws IOException {
+        String GET_URL = "";
 
         if (path.startsWith("/collatzsequence")) {
 
             try{
-                targetUrl = "http://localhost:8081/collatzsequence?value=" + path.split("=")[1];
+                GET_URL = "http://localhost:8081/collatzsequence?value=" + path.split("=")[1];
                 System.out.println("Se ejecutó correctamente el servidor");
             }catch(Exception e){
-                targetUrl = "http://localhost:8081/collatzsequence?value=" + path.split("=")[1];
+                GET_URL = "http://localhost:8081/collatzsequence?value=" + path.split("=")[1];
                 System.out.println("No se pudo correr el primer servidor por lo que se optó por correr el segundo servidor");
             }
         } 
-        URL url = new URL(targetUrl);
+        URL url = new URL(GET_URL);
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
         con.setRequestProperty("User-Agent", USER_AGENT);
