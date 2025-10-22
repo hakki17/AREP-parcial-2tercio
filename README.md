@@ -9,7 +9,7 @@ prototipo de sistema de microservicios con la conjetura de Collatz
 - sudo yum install java-17-amazon-corretto-headless
 - sudo yum install maven
 - sudo yum install git
-- clonar este repo (git clone https://github.com/hakki17/AREP-parcial-2tercio)
+- clonar este repo en cada máquina (git clone https://github.com/hakki17/AREP-parcial-2tercio)
 - AREP-parcial-2tercio
 
 para ejecutar proxy
