@@ -26,10 +26,10 @@ public class ProxyController {
         if (path.startsWith("/collatzsequence")) {
 
             try{
-                GET_URL = "http://localhost:8081/collatzsequence?value=" + path.split("=")[1];
+                GET_URL = "http://44.220.141.128:8081/collatzsequence?value=" + path.split("=")[1];
                 System.out.println("Se ejecutó correctamente el servidor");
             }catch(Exception e){
-                GET_URL = "http://localhost:8081/collatzsequence?value=" + path.split("=")[1];
+                GET_URL = "http://44.223.51.92:8081/collatzsequence?value=" + path.split("=")[1];
                 System.out.println("No se pudo correr el primer servidor por lo que se optó por correr el segundo servidor");
             }
         } 
