@@ -31,6 +31,19 @@ para ejecutar service
 
 ![](https://github.com/hakki17/AREP-parcial-2tercio/blob/main/img/tree.png)
 
+## proceso
+
+Se creó un proxy el cual hacía una llamada a la función de la conjetura de Collatz, que se define como: 
+
+si usted crea una secuencia de números, a partir de cualquier entero positivo, siguiendo las reglas descritas abajo, siempre la secuencia terminará en le número 1. Esta conjetura aún no se ha demostrado.
+
+Para lo cual se hizo una clase ServiceController.java donde se encontraba el proceso de calculo de esa conjetura.
+El browser llama al proxy, el cual hace las peticiones al service.
+
+![](https://github.com/hakki17/AREP-parcial-2tercio/blob/main/img/diagrama.png)
+
+se crearon 3 instancias, una para el proxy y otras dos para el service y se creo una dinámica donde el proxy siempre llama al mismo service (server1) y en caso de que falle se redirige a el otro service (server2)
+
 ## pruebas despliegue
 
 ![](https://github.com/hakki17/AREP-parcial-2tercio/blob/main/img/despliegue.png)
